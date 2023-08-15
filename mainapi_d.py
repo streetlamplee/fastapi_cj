@@ -119,7 +119,6 @@ def post_data(data: dataset):
         Lower_result = OrderedDict()
         seq = item["seq"]
         a = trnsltNsrch(item["requestAddress"])
-        print(a)
         if a == 'juso_err' or a == 'papago_err':
             result_code = "F"
             result_msg = f"seq {seq} is failed to transfer"
@@ -131,8 +130,13 @@ def post_data(data: dataset):
             Lower_result["seq"] = seq
             Lower_result["resultAddress"] = a
             temp_list.append(Lower_result)
+    print(len(temp_list))
     HEADER["RESULT_CODE"] = "S"
+    print("header_resultcode ok")
     HEADER["RESULT_MSG"] = "Success"
+    print("header_resultmsg ok")
     RESULT["HEADER"] = HEADER
+    print("header ok")
     RESULT["BODY"] = temp_list
+    print("body ok")
     return json.dumps(RESULT, ensure_ascii=False)
