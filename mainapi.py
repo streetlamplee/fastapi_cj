@@ -125,7 +125,7 @@ def post_data(data: dataset):
             HEADER["RESULT_CODE"] = result_code
             HEADER["RESULT_MSG"] = result_msg
             RESULT["HEADER"] = HEADER
-            return json.dumps(RESULT, ensure_ascii=False)
+            return RESULT
         else:
             Lower_result["seq"] = seq
             Lower_result["resultAddress"] = a
@@ -134,4 +134,4 @@ def post_data(data: dataset):
     HEADER["RESULT_MSG"] = "Success"
     RESULT["HEADER"] = HEADER
     RESULT["BODY"] = temp_list
-    return json.dumps(RESULT, ensure_ascii=False)
+    return RESULT
