@@ -93,7 +93,7 @@ class Exception_(Exception):
 
 
 class dataset(BaseModel):
-    requestList: list
+    requestList: str
 
 
 app = FastAPI()
@@ -110,8 +110,9 @@ def home():
 
 
 @app.post("/set_data/")
-def post_data(data: dataset):
-    temp = list(data.requestList)
+def post_data(data: str):
+    temp = json.loads(data)
+    temp = temp["requestList"]
     temp_list = []
     RESULT = OrderedDict()
     HEADER = OrderedDict()
