@@ -18,8 +18,9 @@ def preprocess(input_string):
 
 
 def trnslt(keywrd):
-    client_id = "s9hk7dbizs"
-    client_secret = "8BB4Py0QFxCgGhSZiNVsxGVgrk8LFuFkejrE4YRM"
+    # API 키는 개인정보 상 입력하지 않음
+    client_id = ""
+    client_secret = ""
     keywrd = keywrd[:round(len(keywrd)/2)] + re.sub(r'\S*[^\sa-zA-Z가-힣0-9-(),]+\S*', '', keywrd[round(len(keywrd)/2):])
     keywrd = re.sub(r'\S*동\S*|\(.*\)', '', keywrd.replace(u'GF', u'G/F').replace(u'지하', u'B'))
 
